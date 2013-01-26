@@ -13,4 +13,3 @@ update releases then loops until this value equals zero.
 
 then we clean up hashed, nonsense, and invalid names. 
 
-sql query credit goes to Thracky.
