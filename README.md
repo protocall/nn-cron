@@ -1,3 +1,6 @@
 nn-cron
 =======
-Put this in your crontab to run a nightly update. Scripted updates included with nn/nn+ are intended to loop continuously, or manually.
+this script is designed to be run once a day e.g. cron
+for those of us on residential connections or with bandwidth caps.
+most other scripts out there including the stock nn+ screen script
+are designed to loop indefinitely in a screen session.
