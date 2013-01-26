@@ -22,7 +22,6 @@ time php update_binaries_threaded.php
 date
 
 # counts releases still needing post proc
-# sql statement credit goes to Thracky
 still=2
 while [ $still -gt 1 ]; do
 php update_releases.php
