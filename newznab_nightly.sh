@@ -13,6 +13,8 @@ DB_USER="username"
 DB_PASS="password"
 
 # backfill x days each run in addition to update
+# note that 1 day is not enough if you run this once a day
+# by the time it runs again, last updates will already be +1 day old
 days=2
 
 cd ${NN_PATH}/misc/update_scripts/
