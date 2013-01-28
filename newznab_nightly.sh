@@ -7,7 +7,7 @@
 NN_PATH="/usr/share/nnplus"
 
 # database creds
-# DB_HOST="localhost"
+DB_HOST="localhost"
 DB_NAME="newznab"
 DB_USER="username"
 DB_PASS="password"
@@ -27,7 +27,7 @@ date
 still=2
 while [ $still -gt 1 ]; do
 php update_releases.php
-still=`mysql -u ${DB_USER} -p${DB_PASS} ${DB_NAME} -s -N -e "select COUNT(*) from releases r left join category c on c.ID = r.categoryID where (r.passwordstatus between -6 and -1) or (r.haspreview = -1 and c.disablepreview = 0)"`
+still=`mysql -u ${DB_USER} -p${DB_PASS} -h ${DB_HOST} ${DB_NAME} -s -N -e "select COUNT(*) from releases r left join category c on c.ID = r.categoryID where (r.passwordstatus between -6 and -1) or (r.haspreview = -1 and c.disablepreview = 0)"`
 echo "still $still more to go"
 done
 date
@@ -41,7 +41,7 @@ php update_theaters.php
 php update_tvschedule.php
 php update_releases.php
 php optimise_db.php
-mysql -u ${DB_USER} -p${DB_PASS} ${DB_NAME} -e "update groups set backfill_target=backfill_target+$days where active=1;"
+mysql -u ${DB_USER} -p${DB_PASS} -h ${DB_HOST} ${DB_NAME} -e "update groups set backfill_target=backfill_target+$days where active=1;"
 echo "update complete. backfilled $days day(s)."
 date
 
