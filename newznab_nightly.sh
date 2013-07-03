@@ -33,7 +33,8 @@ done
 date
 
 cd ${NN_PATH}/misc/testing/
-php update_parsing.php
+# update parsing evidently added to regular update scripts
+#php update_parsing.php
 php update_cleanup.php
 php removespecial.php
 cd ${NN_PATH}/misc/update_scripts/
